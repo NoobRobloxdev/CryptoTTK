@@ -1,19 +1,19 @@
 # 🔐 CryptoTTK Ultimate Suite
 
-**CryptoTTK** je komplexný Swiss Army Knife nástroj v Pythone (s GUI postaveným na Tkinter/TTK) určený na kryptografiu, steganografiu, skartáciu dát a prácu s rôznymi typmi kódovania. Projekt bol inšpirovaný internetovými záhadami (ako Cicada 3301) a slúži ako univerzálny pomocník pre CTF výzvy, bezpečnosť a prácu so šifrovanými dátami.
+**CryptoTTK** is a comprehensive Swiss Army Knife tool written in Python with a Tkinter/TTK GUI, designed for cryptography, steganography, secure data shredding, and encoding conversions. Inspired by internet security puzzles (such as Cicada 3301), it serves as an all-in-one suite for CTF challenges, data security, and handling encrypted payloads.
 
 ---
 
-## 🚀 Hlavné Funkcie (Features)
+## 🚀 Key Features
 
-### 🔏 1. Šifrovanie & Dešifrovanie (Text & Súbory)
-* **AES-256 (PBKDF2 HMAC SHA-256)** šifrovanie a dešifrovanie textu aj celých súborov/zložiek.
-* Krypto-fallbacky v prípade absencie externých knižníc.
-* Hashovanie textu cez **SHA-1, SHA-256, SHA-512, SHA3-256**.
-* Integrovaný slovníkový **Brute-force cracker** pre základné SHA-1/SHA-256 hashe.
+### 🔏 1. Encryption & Decryption (Text & Files)
+* **AES-256 (PBKDF2 HMAC SHA-256)** encryption and decryption for text, files, and entire directory structures.
+* Built-in cryptographic fallbacks in case external libraries are absent.
+* Hashing capabilities using **SHA-1, SHA-256, SHA-512, and SHA3-256**.
+* Integrated dictionary **Brute-force cracker** for basic SHA-1 and SHA-256 hashes.
 
-### 🔠 2. Enkodéry & Šifry (Base & Ciphers)
-* Konverzia textu medzi rôznymi formátmi:
+### 🔠 2. Encoders & Ciphers
+* Multi-format data conversions:
   * **Base64** Encode / Decode
   * **Hexadecimal** (Hex) Encode / Decode
   * **Binary** (010101) Encode / Decode
@@ -21,30 +21,30 @@
   * **ROT13** Cipher
   * **Caesar Cipher** (Shift +3 / Shift -3)
 
-### 🔍 3. Kontrola Integrity & Hashe Súborov
-* Výpočet **MD5, SHA-1 a SHA-256** hashov pre akýkoľvek súbor naraz.
-* **Porovnávač hashov (Integrity Checker):** Vizuálne overenie, či sa vypočítaný hash zhoduje s očakávaným (zelené/červené zvýraznenie).
+### 🔍 3. File Hashes & Integrity Checker
+* Simultaneous checksum calculation for **MD5, SHA-1, and SHA-256**.
+* **Integrity Checker:** Visual hash matching with green/red verification alerts.
 
-### 🖼️ 🔊 4. Steganografia (PNG & WAV)
-* **PNG Steganografia:** Ukrytie a čítanie tajných textových správ priamo v pixeloch obrázka (LSB metóda).
-* **WAV Audio Steganografia:** Ukrytie a čítanie správ v audio súboroch vo formáte WAV.
+### 🖼️ 🔊 4. Steganography (PNG & WAV)
+* **PNG Steganography:** Hide and extract secret text messages within image pixels using LSB (Least Significant Bit) techniques.
+* **WAV Audio Steganography:** Embed and recover hidden payloads inside WAV audio files.
 
-### 📱 5. QR Code Generátor & Skener
-* Generovanie QR kódov z vybraného textu alebo šifrovaného tokenu do PNG súboru.
-* Skenovanie a dekódovanie QR kódov z obrázkov pomocou knižnice `pyzbar`.
+### 📱 5. QR Code Generator & Scanner
+* Generate PNG QR codes from custom text or encrypted payloads.
+* Scan and decode QR codes directly from image files using `pyzbar`.
 
-### 🔥 6. Bezpečný Skartovač Súborov (File Shredder)
-* Nenávratné vymazanie citlivých súborov prepísaním náhodnými bajtmi (vstavaný DoD štandard overwrite) pred samotným odstránením z disku.
+### 🔥 6. Secure File Shredder
+* Permanently destroy sensitive files using multi-pass random data overwriting (DoD standard style) before unlinking from storage.
 
-### 🔑 7. Generátor Hesiel & Entropia
-* Generátor kryptograficky bezpečných random hesiel s voľbou dĺžky.
-* Výpočet a vizuálne zobrazenie **entropie hesla v bitoch**.
+### 🔑 7. Password Generator & Entropy Meter
+* Cryptographically secure random password generator with customizable length.
+* Real-time calculation and display of **password entropy in bits**.
 
 ---
 
-## 📦 Inštalácia Požadovaných Knižníc
+## 📦 Requirements & Installation
 
-Pre plnú funkčnosť všetkých modulov (QR, Stego, AES) nainštaluj potrebné závislosti:
+To unlock all features (QR handling, steganography, and robust AES), install the dependencies via pip:
 
 ```powershell
 pip install cryptography pillow qrcode pyzbar
