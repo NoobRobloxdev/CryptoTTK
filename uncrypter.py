@@ -30,7 +30,7 @@ try:
 except ImportError:
     HAS_PYZBAR = False
 
-COMMON_WORDS = ["was", "password", "123456", "admin", "hello", "secret", "minecraft", "python", "slovakia"]
+COMMON_WORDS: list = ["was", "password", "123456", "admin", "hello", "secret", "minecraft", "python", "slovakia", "was", "crazy", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "qwerty", "letmein", "monkey", "dragon", "baseball", "football", "iloveyou", "starwars", "sunshine", "princess", "welcome", "shadow", "master", "superman", "harley", "batman", "trustno1", "flower", "hannah", "jordan", "tigger", "michael", "jessica", "pepper", "cookie", "ginger", "samantha", "charlie", "andrew", "michelle", "jennifer", "joshua", "daniel", "ashley", "brittany", "amanda", "sarah", "steven", "robert", "joseph", "emily", "lauren", "kayla", "alexander", "nicholas", "christopher", "anthony", "william", "james", "matthew", "david", "andrew", "ryan", "john", "daniel", "joshua", "joseph", "nicholas", "anthony", "william", "alexander", "michael", "elizabeth", "samantha", "jessica", "amanda", "sarah", "ashley", "brittany", "lauren", "kayla", "morgan", "megan", "hannah", "jordan", "courtney", "kaitlyn", "madison", "olivia", "emma", "abigail", "isabella", "sophia", "ava", "mia", "charlotte", "amelia", "harper", "evelyn", "abigail", "emily", "ella", "scarlett", "grace", "chloe", "victoria", "riley", "ariana", "lillian", "natalie", "aubrey", "zoey", "penelope", "luna", "addison", "stella", "shit", "fuck", "bitch", "asshole", "dick", "pussy", "cunt", "faggot", "nigger", "slut", "whore", "bastard", "cock", "douche", "twat", "prick", "wanker", "arsehole", "bollocks", "bugger", "git", "tosser", "penis", "dildo", "a", "b", "c" , "d", "e", "f", "g", "h" , "i", "j", "k", " l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "good", "bad", "sex", "no", "yes", "nain", "nein", "self", "harm", "the", "cat", "apple", "dictionary", "english"]
 
 def derive_key(password: str) -> bytes:
     if HAS_CRYPTO:
@@ -67,9 +67,8 @@ def extract_text_from_wav(wav_path: str) -> str:
     chars = [chr(int(binary_text[i:i+8], 2)) for i in range(0, len(binary_text), 8)]
     return "".join(chars)
 
-# --- GUI ---
 root = tk.Tk()
-root.title("Crypto TTK - Uncrypter Ultimate Suite")
+root.title("Crypto TTK - Uncrypter")
 root.geometry("740x700")
 
 style = ttk.Style()
@@ -78,7 +77,6 @@ style.theme_use("clam")
 notebook = ttk.Notebook(root)
 notebook.pack(fill=tk.BOTH, expand=True)
 
-# TAB 1: Decryption & Brute-force
 tab1 = ttk.Frame(notebook, padding=15)
 notebook.add(tab1, text="Decryption & Brute-force")
 
@@ -155,7 +153,6 @@ out_entry1.pack(fill=tk.BOTH, expand=True)
 res_label1 = ttk.Label(tab1, text="", font=("Helvetica", 10, "bold"))
 res_label1.pack(pady=5)
 
-# TAB 2: Decoders & Ciphers
 tab2 = ttk.Frame(notebook, padding=15)
 notebook.add(tab2, text="Decoders & Reverse Ciphers")
 
@@ -189,7 +186,6 @@ ttk.Label(tab2, text="Decoded Result:").pack(anchor=tk.W)
 dec_out = tk.Text(tab2, height=5)
 dec_out.pack(fill=tk.BOTH, expand=True)
 
-# TAB 3: Steganography & QR Extractor
 tab3 = ttk.Frame(notebook, padding=15)
 notebook.add(tab3, text="Stego & QR Extractor")
 
@@ -239,11 +235,10 @@ ttk.Label(tab3, text="Extracted Secret / Scanned Data:").pack(anchor=tk.W, pady=
 steg_out_entry = tk.Text(tab3, height=6, wrap=tk.WORD)
 steg_out_entry.pack(fill=tk.BOTH, expand=True, pady=(5, 0))
 
-# TAB 4: About
 tab4 = ttk.Frame(notebook, padding=20)
 notebook.add(tab4, text="About")
 
-ttk.Label(tab4, text="CryptoTTK Ultimate - Uncrypter", font=("Helvetica", 16, "bold")).pack(anchor=tk.W, pady=(0, 5))
+ttk.Label(tab4, text="CryptoTTK - Uncrypter", font=("Helvetica", 16, "bold")).pack(anchor=tk.W, pady=(0, 5))
 ttk.Label(tab4, text="Created by: LOM_Noob", font=("Helvetica", 11, "bold"), foreground="#007acc").pack(anchor=tk.W, pady=(0, 15))
 
 about_text = (
@@ -252,6 +247,7 @@ about_text = (
     "and mysterious internet puzzles like CICADA 3301. It serves as an all-in-one "
     "lightweight toolkit to decrypt payloads, extract secrets from PNG/WAV, scan QR codes, "
     "and solve complex security challenges."
+    "and is designed to be user-friendly for both beginners and advanced users."
 )
 
 msg_label = ttk.Label(tab4, text=about_text, wraplength=520, justify=tk.LEFT)
@@ -260,7 +256,7 @@ msg_label.pack(fill=tk.X, pady=(0, 20))
 link_frame = ttk.LabelFrame(tab4, text=" Official Website / Tunnel ", padding=10)
 link_frame.pack(fill=tk.X, pady=5)
 
-url_str = "https://marmalade-uncloak-unvocal.ngrok-free.dev/"
+url_str = "https://marmalade-uncloak-unvocal.ngrok-free.dev/" # Dont DDOS/DOS this link, it's a free tunnel for testing purposes only. Use responsibly. Thank you for understanding. - LOM_Noob
 url_entry = ttk.Entry(link_frame)
 url_entry.insert(0, url_str)
 url_entry.config(state="readonly")
